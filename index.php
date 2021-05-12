@@ -16,8 +16,6 @@ class Product {
      $this->price = $price;
      $this->code = $code;
      $this->img = $img;
-    
-
  }
 
  //Methods
@@ -47,6 +45,8 @@ class Shoe extends Product {
   //Attr
     public $avaibleSize;
     public $brand;
+    private $promotionCode;
+
  //Construct
     public function __construct($category, $price, $code, $avaibleSize, $brand, $img = NULL)
     {
@@ -54,6 +54,26 @@ class Shoe extends Product {
         $this->avaibleSize = $avaibleSize;
         $this->brand = $brand;
     }
+
+
+//Methods
+public function setPromotion()
+ {
+     $this->promotionCode = '181-920';
+ }
+
+public function getPromotion()
+ {
+     return $this->promotionCode;
+ }
+
+public function getSale() {
+    if ($this->promotionCode == '181-920' ) {
+        return $this->sale + 10 ;
+    }
+    
+}
+
 }
 
 
@@ -70,6 +90,9 @@ var_dump($iPhoneX);
 //Istanze con SubClasse
 $stanSmith = new Shoe('Shoe', 70 , '111-333-444-777', '44-45' , 'Adidas', 'https://kedoff.net/images/product/large/jenskie-krossovki-adidas-stan-smith-j-m20605-img-4.jpg?v=1583487201');
 $airMax = new Shoe('Shoe', 120, '456-887-095', '42-43-44-45-46', 'Nike');
+$airMax->setPromotion('181-920');
+$airMax->getPromotion();
+echo $airMax->setSale('summer');
 var_dump($stanSmith);
 var_dump($airMax);
 
