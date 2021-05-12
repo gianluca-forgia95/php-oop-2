@@ -47,7 +47,6 @@ class Shoe extends Product {
   //Attr
     public $avaibleSize;
     public $brand;
-    private $promotionCode;
 
  //Construct
     public function __construct($name, $category, $price, $code, $avaibleSize, $brand, $img = NULL)
@@ -58,23 +57,6 @@ class Shoe extends Product {
     }
 
 
-//Methods
-public function setPromotion()
- {
-     $this->promotionCode = '181-920';
- }
-
-public function getPromotion()
- {
-     return $this->promotionCode;
- }
-
-public function getSale() {
-    if ($this->promotionCode == '181-920' ) {
-        return $this->sale + 10 ;
-    }
-    
-}
 
 }
 
@@ -117,7 +99,7 @@ $shoes = [$stanSmith, $airMax];
   <div class="box">
   <h2><?php echo $product->name ?></h2>
   <h3> Categoria: <?php echo $product->category ?></h3>
-  <span>Costo: <?php echo $product->getPrice() ?></span>
+  <span>Costo: <?php echo $product->getPrice() ?> $</span>
   <img src="<?php echo $product->img ?>" alt="">
   <p>Sconto: <?php echo $product->getSale() ?>%</p>
   </div>
@@ -129,7 +111,7 @@ $shoes = [$stanSmith, $airMax];
   <div class="box">
   <h2><?php echo $shoe->name ?></h2>
   <h3> Categoria: <?php echo $shoe->category ?></h3>
-  <span>Costo: <?php echo $shoe->getPrice() ?></span>
+  <span>Costo: <?php echo $shoe->getPrice() ?> $</span>
   <img src="<?php echo $shoe->img ?>" alt="">
   <p>Sconto: <?php echo $shoe->getSale() ?>%</p>
   </div>
